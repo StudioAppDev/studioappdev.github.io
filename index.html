@@ -267,6 +267,26 @@
     border-radius: 100px;
     font-weight: 500;
   }
+  .app-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 20px;
+    margin: -4px 0 16px;
+  }
+  .app-features li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+  .app-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--leaf);
+    font-weight: 600;
+  }
   .app-meta {
     display: flex;
     flex-direction: column;
@@ -294,6 +314,7 @@
     }
     .app-icon { margin: 0 auto; }
     .app-tags { justify-content: center; }
+    .app-features { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; text-align: left; }
     .app-meta { align-items: center; text-align: center; }
   }
 
@@ -465,21 +486,27 @@
   <section id="apps">
     <div class="container">
       <h2 class="section-title">Our Apps</h2>
-      <p class="section-subtitle">Mobile applications published by BlueLeaf Apps.</p>
+      <p class="section-subtitle">Apps and tools published by BlueLeaf Apps.</p>
 
       <!-- App: QR Scanner -->
       <article class="app-card">
         <div class="app-icon">
-          <img src="icon/logo_af002.webp" alt="QR Scanner App Icon" style="width: 96px; height: 96px; border-radius: 12px;">
+          <img src="icon/qr_scanner.webp" alt="QR Scanner: Scan, Create, Edit app icon" style="width: 96px; height: 96px; border-radius: 22px;">
         </div>
         <div class="app-info">
           <h3>QR Scanner: Scan, Create, Edit</h3>
-          <p>A lightning-fast, fully offline QR code scanner and generator. Read barcodes, design custom QR codes, and share instantly — all without sending your data anywhere.</p>
+          <p>Scan QR codes and barcodes in a snap, then create your own QR codes with logos, colors and frames. Core scanning and creating work offline.</p>
+          <ul class="app-features">
+            <li>Batch scan many codes at once</li>
+            <li>QR, EAN, UPC, Code 128, PDF417…</li>
+            <li>One tap: open links, join Wi-Fi</li>
+            <li>Custom shapes, colors &amp; logo</li>
+          </ul>
           <div class="app-tags">
             <span class="tag">Offline</span>
+            <span class="tag">Batch scan</span>
+            <span class="tag">Custom QR</span>
             <span class="tag">Free</span>
-            <span class="tag">Android</span>
-            <span class="tag">No tracking</span>
           </div>
         </div>
         <div class="app-meta">
@@ -488,7 +515,50 @@
         </div>
       </article>
 
-      <!-- 
+      <!-- App: StreamWave TV -->
+      <article class="app-card" style="margin-top: 24px;">
+        <div class="app-icon">
+          <img src="icon/streamwave_tv.webp" alt="StreamWave TV App Icon" style="width: 96px; height: 96px; border-radius: 12px;">
+        </div>
+        <div class="app-info">
+          <h3>StreamWave TV - IPTV Player</h3>
+          <p>A fast IPTV and M3U8 stream player. Add your own M3U playlists and stream links, and watch live TV on your Android device with a clean, simple player.</p>
+          <div class="app-tags">
+            <span class="tag">IPTV</span>
+            <span class="tag">M3U / M3U8</span>
+            <span class="tag">Android</span>
+            <span class="tag">Free</span>
+          </div>
+        </div>
+        <div class="app-meta">
+          <span class="platform">Android</span>
+          <a href="https://play.google.com/store/apps/details?id=com.stream.itpv.live.m3u.smartplayer" target="_blank" rel="noopener noreferrer" class="status" style="color: var(--leaf); text-decoration: none; font-weight: 500;">▶ Available on Google Play</a>
+        </div>
+      </article>
+
+      <!-- App: UAC & AdMob Manager (desktop tool) -->
+      <article class="app-card" style="margin-top: 24px;">
+        <div class="app-icon" style="background: none; box-shadow: none;">
+          <img src="icon/uac_manager.png" alt="UAC &amp; AdMob Manager app icon" style="width: 104px; height: 104px;">
+        </div>
+        <div class="app-info">
+          <h3>UAC &amp; AdMob Manager</h3>
+          <p>A desktop tool for launching Google Ads App campaigns across many countries, managing ad videos, and tracking ROAS by country with AdMob revenue. Data stays on your computer.</p>
+          <div class="app-tags">
+            <span class="tag">Desktop</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">AdMob</span>
+            <span class="tag">Local data</span>
+          </div>
+        </div>
+        <div class="app-meta">
+          <span class="platform">macOS · Windows</span>
+          <a href="uac-manager/" class="status" style="color: var(--leaf); text-decoration: none; font-weight: 500;">Learn more →</a>
+          <a href="uac-manager/privacy.html" class="status" style="color: var(--ink-soft); text-decoration: none;">Privacy Policy</a>
+        </div>
+      </article>
+
+      <!--
         ▼▼▼ TO ADD A NEW APP: copy the <article class="app-card">...</article> 
         block above, paste it below, and update the title, description, 
         and (optionally) the SVG icon. 
